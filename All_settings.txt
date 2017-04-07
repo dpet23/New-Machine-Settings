@@ -1,0 +1,451 @@
+﻿===========================================================================
+
+
+APPS
+
+--------------------
+
+Setting Photo Viewer as default for bmp, gif, jpg, png, and tif
+
+Showing Photo Viewer in "Open with..."
+
+Enabling F8 boot menu options
+
+Installing Windows Subsystem for Linux (Beta)
+	└-> version 1607 (Redstone 1) or newer
+
+
+===========================================================================
+
+
+BROWSERS
+
+--------------------
+
+Edge -> Settings -> Choose a theme: "Light"
+
+Edge -> Settings -> Open new tabs with: "A blank page"
+
+Edge -> Settings -> Favorites -> Show the favorites bar (on)
+
+Edge -> Settings -> Favorites -> Show only icons on the favorites bar (off)
+	└-> version 1511 (Threshold 2) or newer
+
+Edge -> Settings -> Reading -> Reading view style: "Default"
+
+Edge -> Settings -> Reading -> Reading view font size: "Medium"
+
+Edge -> Settings -> Advanced settings -> Show the home button (on)
+
+Edge -> Settings -> Advanced settings -> Block pop-ups (on)
+
+Edge -> Settings -> Advanced settings -> Use Adobe Flash Player (on)
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Offer to save passwords (off)
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Save form entries (off)
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Send "Do NotTrack" requests (on)
+
+[ Edge -> Settings -> Advanced settings -> Privacy and services -> Have Cortana assist me in Microsoft Edge (off) ]
+
+[ Edge -> Settings -> Advanced settings -> Privacy and services -> Search in the address bar with: "Google" ]
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Show search and site suggestions as I type (on)
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Cookies: "Block only third-party cookies"
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Let sites save protected media licenses on my device (off)
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Use page prediction (off)
+
+Edge -> Settings -> Advanced settings -> Privacy and services -> Use SmartScreen Filter (on)
+
+Edge -> about:flags (on)
+
+Edge -> about:flags -> Show "View source" and "Inspect element" in the context menu (on)
+
+
+Block Advertising in IE
+
+
+===========================================================================
+
+
+DEVICES
+
+--------------------
+
+Devices -> Printers & scanners -> Let Windows manage my default printer (off)
+	└-> version 1511 (Threshold 2) or newer
+
+Devices -> Printers & scanners -> Download over metered connections (off)
+
+Devices -> Bluetooth (on)
+
+Devices -> Mouse & touchpad -> Scroll inactive windows when I hover over them (on)
+
+Devices -> Typing -> Autocorrect misspelled words (on)
+
+Devices -> Typing -> Highlight misspelled words (on)
+
+Devices -> Autoplay (off)
+
+Devices -> USB -> Notify me if there are issue connecting to USB devices (on)
+	└-> version 1511 (Threshold 2) or newer
+
+
+===========================================================================
+
+
+FILE EXPLORER
+
+--------------------
+
+Enable CTRL+ALT+DEL at logon
+
+File Explorer: open to "This PC"
+
+File Explorer: use check boxes to select items (on)
+
+File Explorer: show hidden files, folders and drives (on)
+
+File Explorer: hide extensions for known file types (off)
+
+File Explorer: show status bar (on)
+
+File Explorer: use sharing wizard (on)
+
+File Explorer: always show icons, never thumbnails (off)
+
+File Explorer: always show menus (off)
+
+File Explorer: display file icon on thumbnails (on)
+
+File Explorer: show pop-up description of folder and desktop items (on)
+
+File Explorer: display file size information in folder tips (on)
+
+File Explorer: display the full path in the title bar (off)
+
+File Explorer: hide empty drives (on)
+
+File Explorer: hide folder merge conflicts (off)
+
+File Explorer: hide protected OS files (on)
+
+File Explorer: launch folder windows in a separate process (off)
+
+File Explorer: restore previous folder windows at logon (off)
+
+File Explorer: show drive letters (on)
+
+File Explorer: show encrypted/compressed NTFS files in colour (on)
+
+File Explorer: show preview handlers in preview pane (on)
+
+File Explorer: show sync provider notifications (on)
+
+File Explorer: when typing into list view - select the typed item in the view
+
+File Explorer: Navigation Pane -> expand to open folder (off)
+
+File Explorer: Navigation Pane -> show all folders (off)
+
+File Explorer: Navigation Pane -> show libraries (on)
+
+
+===========================================================================
+
+
+INTERFACE
+
+--------------------
+
+Aero Shake (off)
+
+Wi-Fi Sense (off)
+
+Fast Startup (off)
+
+Sticky Keys (off)
+
+Make desktop menus snappier (20ms)
+
+User Account Control: Full
+
+OneDrive -> Run at startup (off)
+
+UI -> Use Windows 7/8 UAC prompt (off)
+
+UI -> Use Windows 7 volume control (off)
+
+# UI -> Use Windows 8 network control (off)
+
+# UI -> Use Windows 7 clock & calendar control (off)
+
+# UI -> Use Windows 7 battery control (off)
+
+# UI -> Use Windows 8 notification center (off)
+
+# UI -> Show "This PC" shortcut on desktop
+
+# UI -> Show "User Files" shortcut on desktop
+
+# UI -> Show "Control Panel" shortcut on desktop
+
+# UI -> Show "Network" shortcut on desktop
+
+# UI -> Show "Recycle Bin" shortcut on desktop
+
+UI -> Sign-in screen -> Disable the Password Reveal button (off)
+
+UI -> Sign-in screen -> Disable the Power button (off)
+
+UI -> Lock screen -> Disable the Network button (off)
+
+Always show "Open command window here" on right click for folders and background
+
+
+===========================================================================
+
+
+PERSONALISATION
+
+--------------------
+
+# Personalization -> Colors -> Accent color
+
+Personalization -> Colors -> Make Start, taskbar, and action center transparent (on)
+
+Personalization -> Colors -> Show color on Start, taskbar, and action center (on)
+
+Personalization -> Colors -> Show color on title bar (on)
+	└-> version 1511 (Threshold 2) or newer
+
+Personalization -> Colors -> App mode: light
+	└-> version 1607 (Redstone 1) or newer
+
+Personalization -> Lock screen -> Get fun facts, tips, tricks, and more on your lock screen (off)
+	└-> version 1607 (Redstone 1) or newer
+
+# Personalization -> Lock screen -> Show lock screen background picture on the sign-in screen (on)
+	└-> version 1511 (Threshold 2) or newer
+
+# Personalization -> Start -> Show more tiles (on)'
+
+Personalization -> Start -> Occasionally show suggestions in Start (off)
+	└-> version 1511 (Threshold 2) or newer
+
+Personalization -> Start -> Show most used apps (on)
+
+<…>
+
+Personalization -> Taskbar -> Lock the taskbar (on)
+
+Personalization -> Taskbar -> Use small taskbar buttons (off)
+
+Personalization -> Taskbar -> Use peek to preview the desktop (on)
+
+Personalization -> Taskbar -> Use Powershell on WIN+X (off)
+
+Personalization -> Taskbar -> Show badges on taskbar buttons (on)
+
+Personalization -> Taskbar -> Combine taskbar buttons: "Always combine, hide labels"
+
+Taskbar -> "Show Task View button" (on)
+
+Taskbar -> "Cortana" (icon)
+
+Taskbar -> Windows Search -> My device history (off)
+
+Taskbar -> Increased transperancy (off)
+
+Cortana (off)
+
+Bing Search (off)
+
+
+===========================================================================
+
+
+PRIVACY
+
+--------------------
+
+Privacy -> General -> Let apps use my advertising id for experiences across apps (off)
+
+Privacy -> General -> SmartScreen Filter to check web content that Windows Store apps use (on)
+
+Privacy -> General -> Send Microsoft info about how I write to help us improve typing and writing in the future (off)
+
+Privacy -> General -> Let websites provide locally relevant content by accessing my language list (off)
+
+Privacy -> General -> Let apps on my other devices open apps and continue experiences on this device (off)'
+	└-> version 1607 (Redstone 1) or newer
+
+Privacy -> General -> Let apps on my other devices use Bluetooth to open apps and continue experiences on this device (off)
+	└-> version 1607 (Redstone 1) or newer
+
+Privacy -> Location -> Location (for this account) (off)
+
+# Privacy -> Location -> Location for this device (for all accounts) (off)
+	└-> automatically resets
+
+Privacy -> Camera -> Let apps use my camera (off)
+
+Privacy -> Microphone -> Let apps use my microphone (off)
+
+Privacy -> Notifications -> Let apps access my notifications (off)
+	└-> version 1607 (Redstone 1) or newer
+
+Privacy -> Speech, inking & typing -> Disable Cortana
+	└-> version 1511 (Threshold 2) or newer
+
+Privacy -> Speech, inking & typing -> Get to know my typing (off)
+
+Privacy -> Account info -> Let apps access my name, picture and other account info (off)
+
+Privacy -> Contacts -> Let apps access my contacts (off)
+
+Privacy -> Calendar -> Let apps access my calendar (off)
+
+Privacy -> Call history -> Let apps access my call history (off)
+	└-> version 1511 (Threshold 2) or newer
+
+Privacy -> Email -> Let apps access and send email (off)
+	└-> version 1511 (Threshold 2) or newer
+
+Privacy -> Messaging -> Let apps read or send text/SMS/MMS messages (off)
+
+Privacy -> Radios -> Let apps control radios (off)
+
+Privacy -> Other devices -> Sync with devices (off)
+
+Privacy -> Feedback & diagnostics -> Windows should ask for my feedback: "Never"
+
+Privacy -> Feedback & diagnostics -> Send your device data to Microsoft: "Security"
+
+Privacy -> Turn off Microsoft consumer experience
+	└-> does not work on Home editions
+
+
+===========================================================================
+
+
+REGION
+
+--------------------
+
+Time & Language -> Date & time -> Set time automatically (on)
+
+Time & Language -> Date & time -> Set time zone automatically (off)
+
+Time & Language -> Date & time -> Adjust for daylight saving time automatically (on)
+
+Time & Language -> Region & language -> Country: "Australia"
+
+# Time & Language -> Region & language -> Languages: en-AU
+
+Time & Language -> Date & time -> Formats -> First day of week: "Monday"
+
+Time & Language -> Date & time -> Formats -> Short time: "h:mm tt"
+
+Time & Language -> Date & time -> Formats -> Long time: "h:mm:ss tt"
+
+Time & Language -> Date & time -> Formats -> Short date: "d/MM/yyyy""
+
+Time & Language -> Date & time -> Formats -> Long date: "dddd, d MMMM, yyyy"
+
+
+===========================================================================
+
+
+SYSTEM
+
+--------------------
+
+System -> Notifications & actions -> Get notifications from apps and other senders (on)
+	└-> version 1607 (Redstone 1) or newer
+
+System -> Notifications & actions -> Show notifications on the lock screen (on)
+
+System -> Notifications & actions -> Show alarms, reminders, and incoming VoIP calls on the lock screen (on)
+
+System -> Notifications & actions -> Hide notifications when duplicating the screen (on)
+
+System -> Notifications & actions -> Get tips, tricks, and suggestions as you use Windows (off)
+	└-> version 1511 (Threshold 2) or newer
+
+System -> Notifications & actions -> Show app notifications (on)
+
+System -> Offline maps -> Metered connections (off)
+
+System -> Offline maps -> Automatically update maps (on)
+
+System -> Tablet mode (off)
+
+System -> Tablet mode -> When I sign in: go to the desktop
+
+System -> Tablet mode -> When automatically switching tablet mode on/off (always ask)
+
+System -> Tablet mode -> Hide app icons on the taskbar in tablet mode (off)
+
+System -> Tablet mode -> Automatically hide the taskbar in tablet mode (off)
+
+System -> Multitasking -> Snap (on)
+
+System -> Multitasking -> When I snap a window, automatically size it to fill available space (on)
+
+System -> Multitasking -> When I snap a window, show what I can snap next to it (off)
+
+System -> Multitasking -> When I resize a snapped a window, resize any other snapped windows (on)
+	└-> version 1511 (Threshold 2) or newer
+
+# System -> Multitasking -> Virtual desktops -> On the taskbar, show windows that are open on: only the desktop used
+
+System -> Multitasking -> Virtual desktops -> Pressing ALT+TAB shows windows that are open on: only the desktop used
+
+Enable hidden "System -> Share" page on Settings (on)
+
+System -> Share -> Show apps I use most often at the top of the app list (off)
+
+System -> Share -> Show a list of how I share most often (on)
+
+System -> Share -> Items in list: 5
+
+
+===========================================================================
+
+
+UPDATES
+
+--------------------
+
+Update & Security -> Windows Update -> Advanced options -> Choose how updates are installed: "Notify for download and notify for install"
+	└-> does not work on Home editions
+
+Update & Security -> Windows Update -> Advanced options -> Give me updates for other Microsoft products when I update Windows: Yes
+
+Update & Security -> Windows Update -> Advanced options -> Defer upgrades: Yes
+
+Update & Security -> Windows Update -> Advanced options -> Use my sign-in info to automatically finish setting up my device after an update: No
+	└-> version 1607 (Redstone 1) or newer
+
+Update & Security -> Windows Update -> Advanced options -> Choose how updates are delivered -> Updates from more than one place (off)
+
+# Update & Security -> Windows Update -> Advanced options -> Choose how updates are delivered -> Updates from more than one place -> Get updates from and send updates to ...
+	└-> "Requested registry access is not allowed."
+
+Update & Security -> Windows Defender -> Real-time protection (on)
+
+Update & Security -> Windows Defender -> Cloud-based protection (off)
+
+Update & Security -> Windows Defender -> Automatic sample submission (off)
+
+Update & Security -> Windows Defender -> Enhanced notifications (off)
+
+Update & Security -> For developers -> Use developer features: "Developer mode"
+
+
+===========================================================================
