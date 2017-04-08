@@ -1,6 +1,14 @@
 ﻿===========================================================================
 
 
+LOGO:
+- URL: http://www.network-science.de/ascii/
+- Font: cybermedium
+
+
+===========================================================================
+
+
 APPS
 
 --------------------
@@ -276,16 +284,20 @@ PRIVACY
 Privacy -> General -> Let apps use my advertising id for experiences across apps (off)
 
 Privacy -> General -> SmartScreen Filter to check web content that Windows Store apps use (on)
+	└-> version 1607 (Redstone 1) or older
 
 Privacy -> General -> Send Microsoft info about how I write to help us improve typing and writing in the future (off)
 
 Privacy -> General -> Let websites provide locally relevant content by accessing my language list (off)
 
 Privacy -> General -> Let apps on my other devices open apps and continue experiences on this device (off)'
-	└-> version 1607 (Redstone 1) or newer
+	└-> version 1607 (Redstone 1)
 
 Privacy -> General -> Let apps on my other devices use Bluetooth to open apps and continue experiences on this device (off)
-	└-> version 1607 (Redstone 1) or newer
+	└-> version 1607 (Redstone 1)
+
+Privacy -> General -> Let Windows track app launches to improve Start and search results (off)
+	└-> version 1703 (Redstone 2) or newer
 
 Privacy -> Location -> Location (for this account) (off)
 
@@ -316,6 +328,9 @@ Privacy -> Call history -> Let apps access my call history (off)
 Privacy -> Email -> Let apps access and send email (off)
 	└-> version 1511 (Threshold 2) or newer
 
+Privacy -> Tasks (off)
+	└-> version 1703 (Redstone 2) or newer
+
 Privacy -> Messaging -> Let apps read or send text/SMS/MMS messages (off)
 
 Privacy -> Radios -> Let apps control radios (off)
@@ -325,6 +340,15 @@ Privacy -> Other devices -> Sync with devices (off)
 Privacy -> Feedback & diagnostics -> Windows should ask for my feedback: "Never"
 
 Privacy -> Feedback & diagnostics -> Send your device data to Microsoft: "Security"
+
+Privacy -> Feedback & diagnostics -> Let Microsoft provide tips using diagnostic data (off)
+	└-> version 1703 (Redstone 2) or newer
+
+Privacy -> Background Apps -> Let apps run in the background (off)
+	└-> version 1703 (Redstone 2) or newer
+
+Privacy -> App Diagnostics -> Let apps access diagnostic information (off)
+	└-> version 1703 (Redstone 2) or newer
 
 Privacy -> Turn off Microsoft consumer experience
 	└-> does not work on Home editions
@@ -341,7 +365,12 @@ Time & Language -> Date & time -> Set time automatically (on)
 
 Time & Language -> Date & time -> Set time zone automatically (off)
 
+# Time & Language -> Date & time -> Time Zone (AEST/AEDT)
+
 Time & Language -> Date & time -> Adjust for daylight saving time automatically (on)
+
+# Time & Language -> Date & time -> Show additional calendars on the taskbar (none)
+	└-> version 1703 (Redstone 2) or newer
 
 Time & Language -> Region & language -> Country: "Australia"
 
@@ -356,6 +385,10 @@ Time & Language -> Date & time -> Formats -> Long time: "h:mm:ss tt"
 Time & Language -> Date & time -> Formats -> Short date: "d/MM/yyyy""
 
 Time & Language -> Date & time -> Formats -> Long date: "dddd, d MMMM, yyyy"
+
+Time & Language -> Speech -> Language you speak with your device (en-AU)
+
+Time & Language -> Speech -> Recognize non-native accents (on)
 
 
 ===========================================================================

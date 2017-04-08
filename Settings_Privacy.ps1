@@ -9,17 +9,13 @@
 ############################################################
 
 
+#region Script Init
+
 ### Get variables
 $scriptPath = $MyInvocation.MyCommand.Path
 $scriptDir = Split-Path $scriptpath
 Push-Location $scriptDir
 . '.\Variables.ps1'
-
-
-############################################################
-
-
-#region Script Init
 
 ### Copy the output to a log file
 $ScriptName = ([io.fileinfo]$MyInvocation.MyCommand.Name).basename
@@ -72,11 +68,13 @@ Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Advertis
                   -Value 0 `
                   -Type 'DWord'
 
+If ($myOS.BuildNumber -le 14393) {    # Apply only for version 1607 (Redstone 1) or older
 '    Privacy -> General -> SmartScreen Filter to check web content that Windows Store apps use (on)'
 Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost\' `
                   -Name 'EnableWebContentEvaluation' `
                   -Value 1 `
                   -Type 'DWord'
+}
 
 '    Privacy -> General -> Send Microsoft info about how I write to help us improve typing and writing in the future (off)'
 Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Input\TIPC\' `
@@ -91,17 +89,24 @@ Set-RegistryValue -Path 'HKCU:Control Panel\International\User Profile\' `
                   -Name 'HttpAcceptLanguageOptOut' `
                   -Value 1
 
-If ($myOS.BuildNumber -ge 14393) {    # Apply only for version 1607 (Redstone 1) or newer
+If ($myOS.BuildNumber -eq 14393) {    # Apply only for version 1607 (Redstone 1)
 '    Privacy -> General -> Let apps on my other devices open apps and continue experiences on this device (off)'
 Set-RegistryValue -Path 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\SmartGlass\' `
                   -Name 'UserAuthPolicy' `
                   -Value 0
 }
 
-If ($myOS.BuildNumber -ge 14393) {    # Apply only for version 1607 (Redstone 1) or newer
+If ($myOS.BuildNumber -eq 14393) {    # Apply only for version 1607 (Redstone 1)
 '    Privacy -> General -> Let apps on my other devices use Bluetooth to open apps and continue experiences on this device (off)'
 Set-RegistryValue -Path 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\SmartGlass\' `
                   -Name 'BluetoothPolicy' `
+                  -Value 0
+}
+
+If ($myOS.BuildNumber -ge 15063) {    # Apply only for version 1703 (Redstone 2) or newer
+'    Privacy -> General -> Let Windows track app launches to improve Start and search results (off)'
+Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\' `
+                  -Name 'Start_TrackProgs' `
                   -Value 0
 }
 
@@ -200,6 +205,13 @@ Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAc
                   -Value 'Deny'
 }
 
+If ($myOS.BuildNumber -ge 15063) {    # Apply only for version 1703 (Redstone 2) or newer
+'    Privacy -> Tasks (off)'
+Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E390DF20-07DF-446D-B962-F5C953062741}\' `
+                  -Name 'Value' `
+                  -Value 'Deny'
+}
+
 '    Privacy -> Messaging -> Let apps read or send text/SMS/MMS messages (off)'
 Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{992AFA70-6F47-4148-B3E9-3003349C1548}\' `
                   -Name 'Value' `
@@ -224,28 +236,56 @@ Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Siuf\Rules\' `
 
 '    Privacy -> Feedback & diagnostics -> Send your device data to Microsoft: "Security"'
 If ($myOS.BuildNumber -lt 14393) {    # Apply only for version 1511 (Threshold 2) or older
-    Write-Host '        └-> NOTE: "Update & Security -> Windows Update -> Advanced options -> Get Insider Builds" will be disabled. To enable, set this to "Enhanced".' -ForegroundColor "Yellow"
+    Write-Host '        └-> NOTE: "Update & Security -> Windows Update -> Advanced options -> Get Insider Builds" will be disabled. To enable, set this to "Enhanced" or "Full".' -ForegroundColor "Yellow"
 } else {
-    Write-Host '        └-> NOTE: "Update & Security -> Windows Insider Program -> Get started" will be disabled. To enable, set this to "Enhanced".' -ForegroundColor "Yellow"
+    Write-Host '        └-> NOTE: "Update & Security -> Windows Insider Program -> Get started" will be disabled. To enable, set this to "Enhanced" or "Full".' -ForegroundColor "Yellow"
 }
-<#Set-RegistryValue -Path 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection\' `
-                  -Name 'AllowTelemetry' `
-                  -Value 0 `
-                  -Type 'DWord'#>
-Set-RegistryValue -Path 'HKLM:SOFTWARE\Policies\Microsoft\Windows\DataCollection\' `
+Write-Host '        └-> Local Computer Policy -> Computer Configuration > Administrative Templates > Windows Components > Data Collection and Preview Builds.'
+Set-RegistryValue -Path 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection\' `
                   -Name 'AllowTelemetry' `
                   -Value 0 `
                   -Type 'DWord'
+<#Set-RegistryValue -Path 'HKLM:SOFTWARE\Policies\Microsoft\Windows\DataCollection\' `
+                  -Name 'AllowTelemetry' `
+                  -Value 0 `
+                  -Type 'DWord'#>
+<#Set-RegistryValue -Path 'HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\Machine\GPO-List\0\' `
+                  -Name 'Version' `
+                  -Value 10001 `
+                  -Type 'DWord'#>
 <#Set-RegistryValue -Path 'HKLM:SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection\' `
                   -Name 'AllowTelemetry' `
                   -Value 0 `
                   -Type 'DWord'#>
                     <# OPTIONS:
-                            0 = "Security" [not available in UI]
-                            1 = "Basic" - OS version, functioning of Windows, device capabilities
+                            0 = "Security" - Malicious Software Removal Tool, Windows Defender [applies to Enterprise, Education, IoT and Server devices only]
+                            1 = "Basic" - Security + OS version, functioning of Windows, device capabilities
                             2 = "Enhanced" - Basic + how you use Windows, which feature you use the most, the most frequently used apps by the users, diagnostic information
-                            3 = "Full (recommended)" - Enhanced + system files, memory snapshots, part of the document you were working on when the app crashed, etc.
+                            3 = "Full" - Enhanced + system files, memory snapshots, part of the document you were working on when the app crashed, etc.
                     #>
+
+If ($myOS.BuildNumber -ge 15063) {    # Apply only for version 1703 (Redstone 2) or newer
+'    Privacy -> Feedback & diagnostics -> Let Microsoft provide tips using diagnostic data (off)'
+Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy\' `
+                  -Name 'TailoredExperiencesWithDiagnosticDataEnabled' `
+                  -Value 0 `
+                  -Type 'DWord'
+}
+
+If ($myOS.BuildNumber -ge 15063) {    # Apply only for version 1703 (Redstone 2) or newer
+'    Privacy -> Background Apps -> Let apps run in the background (off)'
+Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\' `
+                  -Name 'GlobalUserDisabled' `
+                  -Value 1 `
+                  -Type 'DWord'
+}
+
+If ($myOS.BuildNumber -ge 15063) {    # Apply only for version 1703 (Redstone 2) or newer
+'    Privacy -> App Diagnostics -> Let apps access diagnostic information (off)'
+Set-RegistryValue -Path 'HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{2297E4E2-5DBE-466D-A12B-0F8286F0D9CA}\' `
+                  -Name 'Value' `
+                  -Value 'Deny'
+}
 
 If ($myOS.Caption -notlike '*Home') {    # This does not work on Home editions
 '    Privacy -> Turn off Microsoft consumer experience'

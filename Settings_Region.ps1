@@ -9,17 +9,13 @@
 ############################################################
 
 
+#region Script Init
+
 ### Get variables
 $scriptPath = $MyInvocation.MyCommand.Path
 $scriptDir = Split-Path $scriptpath
 Push-Location $scriptDir
 . '.\Variables.ps1'
-
-
-############################################################
-
-
-#region Script Init
 
 ### Copy the output to a log file
 $ScriptName = ([io.fileinfo]$MyInvocation.MyCommand.Name).basename
@@ -30,9 +26,9 @@ Start-Transcript -path $OutputFileLocation -append
 
 ### Print headers
 $scriptLogo = @"
-   ____ ____ ____ _ ____ _  _    ____ _  _ ___     _    ____ _  _ ____ _  _ ____ ____ ____ 
-   |__/ |___ | __ | |  | |\ |    |__| |\ | |  \    |    |__| |\ | | __ |  | |__| | __ |___ 
-   |  \ |___ |__] | |__| | \|    |  | | \| |__/    |___ |  | | \| |__] |__| |  | |__] |___ 
+   ___ _ _  _ ____    ____ _  _ ___     _    ____ _  _ ____ _  _ ____ ____ ____ 
+    |  | |\/| |___    |__| |\ | |  \    |    |__| |\ | | __ |  | |__| | __ |___ 
+    |  | |  | |___    |  | | \| |__/    |___ |  | | \| |__] |__| |  | |__] |___ 
 "@
 Print-Headers "$scriptLogo"
 
@@ -81,24 +77,38 @@ Set-RegistryValue -Path 'HKLM:SYSTEM\ControlSet001\Services\tzautoupdate\' `
                   -Value 4 `
                   -Type 'DWord'
 
+<#'    Time & Language -> Date & time -> Time Zone (AEST/AEDT)'
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\Bias: 0xFFFFFDA8
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\DaylightName: "@tzres.dll,-671"
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\DaylightStart:  00 00 0A 00 01 00 02 00 00 00 00 00 00 00 00 00
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\StandardName: "@tzres.dll,-672"
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\StandardStart:  00 00 04 00 01 00 03 00 00 00 00 00 00 00 00 00
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\TimeZoneKeyName: "AUS Eastern Standard Time"
+HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\ActiveTimeBias: 0xFFFFFDA8#>
+
 '    Time & Language -> Date & time -> Adjust for daylight saving time automatically (on)'
 Set-RegistryValue -Path 'HKLM:SYSTEM\ControlSet001\Control\TimeZoneInformation\' `
                 -Name 'DynamicDaylightTimeDisabled' `
                 -Value 0 `
                 -Type 'DWord'
 
+<#If ($myOS.BuildNumber -ge 15063) {    # Apply only for version 1703 (Redstone 2) or newer
+'    Time & Language -> Date & time -> Show additional calendars on the taskbar (none)'
+HKU\S-1-5-21-3679042177-3856185786-2177076613-1001\Software\Microsoft\Windows\CurrentVersion\CloudStore\Store\Cache\DefaultAccount\$$windows.data.lunarcalendar\Current\Data:  02 00 00 00 DF 44 55 59 BD B0 D2 01 00 00 00 00 43 42 01 00 10 02 00
+}#>
+
 # Run this only if "Time & Language -> Region & language -> Country" is not "Australia"
 If($(Get-ItemPropertyValue -Path 'HKCU:Control Panel\International\Geo\' -Name 'Nation') -ne 12)
 {
     '    Time & Language -> Region & language -> Country: "Australia"'
     Set-RegistryValue -Path 'HKCU:Control Panel\International\Geo\' `
-                    -Name 'Nation' `
-                    -Value 12
+                      -Name 'Nation' `
+                      -Value 12
 
     <#'    Time & Language -> Region & language -> Languages: en-AU'
     --> Not sure which registry settings need to be changed... #>
 
-        '    Time & Language -> Date & time -> Formats -> First day of week: "Monday"'
+    '    Time & Language -> Date & time -> Formats -> First day of week: "Monday"'
     Set-RegistryValue -Path 'HKCU:Control Panel\International\' `
                       -Name 'iFirstDayOfWeek' `
                       -Value 0
@@ -118,11 +128,22 @@ If($(Get-ItemPropertyValue -Path 'HKCU:Control Panel\International\Geo\' -Name '
                       -Name 'sShortDate' `
                       -Value "d/MM/yyyy"
 
-    '    Time & Language -> Date & time -> Formats -> Long date: "dddd, d MMMM, yyyy"'
+    '    Time & Language -> Date & time -> Formats -> Long date: "dddd, d MMMM yyyy"'
     Set-RegistryValue -Path 'HKCU:Control Panel\International\' `
                       -Name 'sLongDate' `
                       -Value "dddd, d MMMM yyyy"
 }
+
+'    Time & Language -> Speech -> Language you speak with your device (en-AU)'
+Set-RegistryValue -Path 'HKCU:Software\Microsoft\Speech_OneCore\Settings\SpeechRecognizer\' `
+                -Name 'RecognizedLanguage' `
+                -Value "en-AU"
+
+'    Time & Language -> Speech -> Recognize non-native accents (on)'
+Set-RegistryValue -Path 'HKCU:Software\Microsoft\Speech_OneCore\Settings\SpeechRecognizer\' `
+                -Name 'UseRelaxedRecognition' `
+                -Value 1 `
+                -Type 'DWord'
 
 
 ############################################################
